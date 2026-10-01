@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 위치 찾기</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <h1>나의 위치 찾기</h1>
+        <p class="app__hint">
+          브라우저 위치 권한이 필요합니다. HTTPS 또는 localhost에서 실행하세요.
+        </p>
+      </header>
+
+      <section class="controls" aria-label="위치 찾기">
+        <button type="button" id="find-btn" class="btn btn--primary">
+          내 위치 찾기
+        </button>
+        <button type="button" id="retry-btn" class="btn btn--secondary" hidden>
+          다시 찾기
+        </button>
+      </section>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+
+      <section id="results" class="results" hidden>
+        <dl class="coords">
+          <div>
+            <dt>위도</dt>
+            <dd id="lat">—</dd>
+          </div>
+          <div>
+            <dt>경도</dt>
+            <dd id="lng">—</dd>
+          </div>
+          <div>
+            <dt>정확도</dt>
+            <dd id="accuracy">—</dd>
+          </div>
+        </dl>
+        <p class="address">
+          <span class="address__label">주소</span>
+          <span id="address">—</span>
+        </p>
+        <div id="map" class="map" aria-label="현재 위치 지도"></div>
+      </section>
+    </main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
